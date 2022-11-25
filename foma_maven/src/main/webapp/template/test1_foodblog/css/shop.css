@@ -1,0 +1,62 @@
+/* .shop-page single padding-tb pb-0 {
+	background: url(assets/images/about/01.png);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: left-bottom;
+	background-size: 300px 200px;
+} */
+.shop-thumb img {
+   width: 500px;
+   height: 400px;
+}
+
+/*
+div {
+   font-size: 20px;
+   text-align: center;
+}
+*/
+.shop-page {
+   text-align: center;
+}
+
+.title {
+   text-align: center;
+   font-size: 25px;
+}
+
+.column {
+   float: left;
+   width: 50%;
+   padding: 10px;
+}
+
+.rowshop:after {
+   content: "";
+   display: table;
+   clear: both;
+}
+
+table {
+   text-align: center;
+   left: 180px;
+   font-size: 25px;
+}
+h5{
+	font-size: 33px;
+}
+/*
+.column {
+   flex: 50%;
+}
+
+.rowshop{
+   display: flex;
+}
+*/
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+}

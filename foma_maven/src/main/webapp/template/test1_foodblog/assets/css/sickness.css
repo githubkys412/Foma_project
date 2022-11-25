@@ -1,0 +1,55 @@
+.page-header .container .page-title-text-center2 {
+  width: 1200px;
+  height: 70px;
+  color: white;
+  background: #fb524f;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+.page-header .container .page-title-text-center2 select {
+  width: 300px;
+  height: 60px;
+  align-items: center;
+  margin: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.page-header .container .page-title-text-center2 button {
+  width: 100px;
+  height: 60px;
+  margin: 5px;
+  margin-left: 10px;
+}
+.page-header .container .page-title-text-center3 {
+  width: 1200px;
+  height: 80px;
+  color: white;
+  background: #fb524f;
+  text-align: center;
+
+  justify-items: center;
+  border-radius: 10px;
+}
+.page-header .container .page-title-text-center3 input {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  margin-left: 10px;
+
+  text-justify: auto;
+}
+.page-header .container .page-title-text-center3 button {
+  width: 100px;
+  height: 60px;
+  margin: 10px;
+  margin-left: 15px;
+}
+footer{
+  bottom: 0px;
+}
+.banner{
+	min-height: 610px;
+}

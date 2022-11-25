@@ -1,0 +1,131 @@
+body{
+   font-family: 강원교육모두 Light;
+}
+#wrap { 
+   width: 971px; /* 1024*768로 해상도를 맞추어서 설계 */
+   /* 가운데 정렬을 위한 바깥쪽 여백 설정 */
+   margin: 0;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top:50px;
+}
+
+h1 {
+   color: green;
+   font-family: 강원교육모두 Bold; /* 글 색상 */
+}
+
+table {
+   width: 85%;
+   border-collapse: collapse;
+   font-size: 12px; /* 글꼴 크기 */
+   line-height: 24px; /* 줄 간격 */
+   margin-left: auto;
+   margin-right: auto;
+}
+
+table td,th {
+   border: #d3d3d3 solid 1px; /* 경계선 색상 스타일 굵기 */
+   padding: 5px; /* 안쪽 여백 */
+}
+
+th {
+   background: #FFCCBC; /* 배경색 */
+}
+
+.image img{
+   width: 900px;
+   height: 200px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+a {
+   text-decoration: none; /* 링크 밑줄 없애기 */
+   color: black; /* 글 색상 */
+}
+
+a:HOVER {
+   text-decoration: underline; /* 밑줄 */
+   color: green; /* 글 색상 */
+}
+#wrap {
+   height: 80px;
+   width: 800px;
+   background: #fb524f;
+   border-radius: 10px;
+}
+#wrap .title h2{
+   color: white;
+}
+.list {
+   width: 1000px;
+   margin: auto;
+}
+body { 
+   background-image: url(../template/test1_foodblog/assets/css/bg-image/category-bg.jpg);
+   /* background-image: url(../images/img2.jpg); */
+   /* background-size: cover; */
+   background-size: cover;
+}
+.postPage{
+   margin: auto;
+   margin-top: 20px;
+}
+#wrap1 {
+   margin-top:100px;
+   height: 80px;
+   width: 1000px;
+   background: #fb524f;
+   border-radius: 10px;
+   margin: auto;
+}
+#wrap1 .title h1{
+   color: white;
+   font-size: 30px;
+}
+.table{
+   width: 900px;
+}
+#wrap1 th{
+   background: #fb524f;
+   color: white;
+}
+
+.btns{
+   text-align: center;
+}
+
+#inputcomment{
+   background-color: white;
+}
+
+#showlike, #inputcomment,#showcomment{
+   width: 900px;
+}
+
+#showcomment{
+   background: white;
+}
+
+#com{
+   margin-left: 20%;
+   font-family: 강원교육모두 Bold;
+}
+
+#comm{
+   background: #FFCCBC;
+   width: 900px;
+   border-collapse: collapse;
+   font-size: 12px; /* 글꼴 크기 */
+   line-height: 24px; /* 줄 간격 */
+   margin-left: auto;
+   margin-right: auto;
+   font-family: 강원교육모두 Bold;
+   text-align: center;
+}
+.cont1 {
+	min-width: 600px;
+}
+

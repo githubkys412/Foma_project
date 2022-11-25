@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  <!-- 
+	안에 순서를 지켜서 작성해야 함
+	- The content of element type "configuration" must match 
+	 "(properties?,settings?,typeAliases?,typeHandlers?,
+	 	objectFactory?,objectWrapperFactory?,reflectorFactory?,
+	 	plugins?,environments?,databaseIdProvider?,mappers?)".
+ -->
+ 
+  <!-- 연결정보 따로 생성 후 불러오기 -->
+<configuration>
+    
+<properties resource="com/foma_java_mvc_folder/database/db.properties">
+</properties>
+
+<!-- null값 일경우 값 지정  -->
+<!-- 
+<settings>
+    <setting name="jdbcTypeForNull" value="NULL"/>
+    <setting name="callSettersOnNulls" value="true"/>
+    </settings>
+
+ -->
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+      </dataSource>
+    </environment>
+  </environments>
+
+  <!-- sql문이 정리된 mapper.xml관리 -->
+  <mappers>
+    <mapper resource="com/foma_java_mvc_folder/database/MemberMapper.xml"/>
+  </mappers>
+</configuration>

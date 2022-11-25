@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+      <!--selet,insertmupdate,delete 태그들이 존재함  -->
+    <!--namespace: id를 그룹화, 보통 mapper의 경로를 입력  -->
+    <!--resulttype 리턴타입  -->
+    <!--바인드 변수처럼 필드명 컬럼명  -->
+    
+    
+<mapper namespace="com.foma_java_mvc_folder.database.MemberMapper">
+ 
+   
+ <!--resultmap 이용해서 오라클 넘버타입 일치  -->
+ 
+<resultMap type="com.foma_java_mvc_folder.domain.FMember" id="fdrsmap">
+<!--   <result column="username" property="username" />
+  <result column="userpw" property="userpw"/>
+  <result column="useremail" property="useremail" />
+   <result  column="userage" property="userage"  javaType="java.lang.Double"/>
+ <result column="userheight" property="userheight" javaType="java.lang.Double"/>
+  <result column="userweight" property="userweight" javaType="java.lang.Double"/>
+  <result column="userbmi" property="userbmi" javaType="java.lang.Double"/> -->
+<!--   
+<result property="fd_name" column="fd_name" nullValue="" /> 
+
+ -->
+
+</resultMap> 
+   
+   
+   
+   
+     <!--   유저 데이터 관련 쿼리 명령문들  -->
+    
+    <insert id="insertMember" parameterType="com.foma_java_mvc_folder.domain.Member">
+  insert into Member values (#{username},#{userpw},#{useremail},#{userage},#{userheight},#{userweight},#{userdiabetes},#{userhbp},#{userbmi},#{userhyperlip},#{userobesity},#{userheartdis},#{userstroke},#{userpuldis},#{userliverdis},#{userosteo},#{userarthritis},#{usermyoinfar})
+  
+  </insert>
+  <select id="selectMember" parameterType="com.foma_java_mvc_folder.domain.Member"  resultType = "com.foma_java_mvc_folder.domain.Member">
+
+ select * from Member where username = #{username} and userpw = #{userpw}
+ 
+  </select>
+  
+  <select id="selectMembernopw" parameterType="com.foma_java_mvc_folder.domain.Member"  resultType = "com.foma_java_mvc_folder.domain.Member">
+
+ select * from Member where username = #{username}
+ 
+  </select>
+  
+    <select id="selectMembecheck" parameterType="com.foma_java_mvc_folder.domain.Member"  resultType = "com.foma_java_mvc_folder.domain.Member">
+
+ select * from Member where username = #{username} and userpw = #{userpw}
+ 
+  </select>
+  
+  <!-- 아이디 조회 -->
+  <select id="findIdMember" parameterType="String"  resultType = "com.foma_java_mvc_folder.domain.Member">
+
+ 	select username from Member where username like '%'||#{username}||'%'
+ 
+  </select>
+  
+  
+   <update id="updateMember" parameterType="com.foma_java_mvc_folder.domain.Member"   >
+  update member set userpw=#{userpw},useremail=#{useremail}, userage=#{userage},userheight=#{userheight},userweight=#{userweight},userdiabetes=#{userdiabetes},userhbp=#{userhbp},userbmi=#{userbmi},
+
+  userhyperlip=#{userhyperlip},userobesity=#{userobesity},userheartdis=#{userheartdis},userstroke=#{userstroke},userpuldis=#{userpuldis},userliverdis=#{userliverdis},userosteo=#{userosteo},userarthritis=#{userarthritis},usermyoinfar=#{usermyoinfar}
+
+  
+  where username=#{username}
+
+  </update>
+  
+   <delete id="deleteMember" parameterType="com.foma_java_mvc_folder.domain.Member"   >
+ DELETE FROM member WHERE username =#{username}
+  
+  </delete>
+  
+  <!--   음식 찾기 관련 쿼리 명령문들, 다중 결과문은 selectlist로 뽑아야함 -->
+  
+   <select id="selectFMember" parameterType="com.foma_java_mvc_folder.domain.FMember"  resultType = "com.foma_java_mvc_folder.domain.FMember">
+<!--비교식 쓰면 xml문법 오류가 생기므로 !cdata로 sql문 감싸기 , like 쿼리문을 검색시 '%'||#{searchKeyword}||'%' 로 감싸야함  -->
+
+   <![CDATA[select * from fmember where fd_name like '%'||#{fd_name}||'%']]>
+   
+ 
+  </select>
+  
+	<!-- 저염식 검색, 기준은 소금함량 300이하 -->
+  <select id="selectFMemberlowsalt" parameterType="com.foma_java_mvc_folder.domain.FMember"  resultType = "com.foma_java_mvc_folder.domain.FMember">
+
+   <![CDATA[select * from fmember where fd_name like '%'||#{fd_name}||'%' and fd_ing_salt>-1 and fd_ing_salt<300]]>
+ 
+  </select>
+  
+	<!-- 저칼로리 검색, 기준은 칼로리 300이하 -->
+  <select id="selectFMemberlowcal" parameterType="com.foma_java_mvc_folder.domain.FMember"  resultType = "com.foma_java_mvc_folder.domain.FMember">
+
+   <![CDATA[select * from fmember where fd_name like '%'||#{fd_name}||'%' and fd_ing_cal>-1 and fd_ing_cal<300]]>
+ 
+  </select>
+ 
+  <!-- <select id="selectFMemberlocarhifat" parameterType="com.foma_java_mvc_folder.domain.FMember"  resultType = "com.foma_java_mvc_folder.domain.FMember">
+저탄고지  검색, 탄수화물 20이하   지방 40이상, 기준은 하루2000칼로리 기준 탄수화물 50,단백질100이하, 지방은 150이상
+https://freefrdi.com/how-much-fat-for-keto/ 
+데이터 부족으로 숫자적음 
+   <![CDATA[select * from fmember where fd_name like '%'||#{fd_name}||'%' and fd_ing_carbohydrate>-1 and fd_ing_carbohydrate<20 AND fd_ing_saturated_fatty+fd_ing_trans_fatty+fd_ing_fatty >40  and rownum<6]]>
+ 
+  </select> -->
+  
+  <!--고혈압 : 기준 → 나트륨 2000mg미만 지방 51g미만(트랜스지방산, 포화지방산 포함) 당류35g미만 칼로리열량 <550미만-->
+  <select id="selectFMemberhbp" parameterType="com.foma_java_mvc_folder.domain.FMember"  resultType = "com.foma_java_mvc_folder.domain.FMember">
+
+   <![CDATA[select * from fmember where fd_name like '%'||#{fd_name}||'%' and fd_ing_salt>-1 and fd_ing_salt<2000 and fd_ing_saturated_fatty+fd_ing_trans_fatty+fd_ing_fatty <50 and fd_ing_sugar>-1 and fd_ing_sugar <35 and fd_ing_cal>-1 and fd_ing_cal<300 ]]>
+ 
+  </select>
+  
+  <!--당뇨 : 기준 → 당류25g미만 나트륨 2000mg미만 지방(지방+포화+트랜스<35)<35 단백질 35g미만 탄수화물 140g미만  -->
+  <select id="selectFMemberdiabe" parameterType="com.foma_java_mvc_folder.domain.FMember"  resultType = "com.foma_java_mvc_folder.domain.FMember">
+
+   <![CDATA[select * from fmember where fd_name like '%'||#{fd_name}||'%' and fd_ing_salt<2000 and fd_ing_saturated_fatty+fd_ing_trans_fatty+fd_ing_fatty <35 and fd_ing_sugar <25 and fd_ing_protein<35 and fd_ing_carbohydrate<140]]>
+ 
+  </select>
+  
+  <!--고지혈증 : 기준 → 나트륨 2000mg미만 콜레스테롤300mg미만 식이섬유25g미만 칼로리 500미만  -->
+  <select id="selectFMemberhyperlip" parameterType="com.foma_java_mvc_folder.domain.FMember"  resultType = "com.foma_java_mvc_folder.domain.FMember">
+
+   <![CDATA[select * from fmember where fd_name like '%'||#{fd_name}||'%' and fd_ing_salt<2000 and fd_ing_cholesterol<300 and fd_ing_dietaryfiber<25 and fd_ing_cal < 500]]>
+ 
+  </select>
+  
+  <!--비만 : 기준 → 칼로리 500미만 나트륨 2000mg미만   -->
+  <select id="selectFMemberobesity" parameterType="com.foma_java_mvc_folder.domain.FMember"  resultType = "com.foma_java_mvc_folder.domain.FMember">
+   <![CDATA[select * from fmember where fd_name like '%'||#{fd_name}||'%' and fd_ing_salt<2000 and fd_ing_cal < 500]]>
+ 
+  </select>
+  
+  <!-- 심근경색 기준: 나트륨 2000mg미만 당류25g미만 칼로리 500미만 지방(지방+포화+트랜스)<35 -->
+  <select id="selectFMembermyoinfar" parameterType="com.foma_java_mvc_folder.domain.FMember"  resultType = "com.foma_java_mvc_folder.domain.FMember">
+   <![CDATA[select * from fmember where fd_name like '%'||#{fd_name}||'%' and fd_ing_salt<2000 and fd_ing_cal < 500 and fd_ing_saturated_fatty+fd_ing_trans_fatty+fd_ing_fatty <35 and fd_ing_sugar <25]]>
+ 
+  </select>
+  
+  <!--카테고리 검색  -->
+  <select id="selectFMembercate" parameterType="com.foma_java_mvc_folder.domain.FMember"  resultType = "com.foma_java_mvc_folder.domain.FMember">
+  <![CDATA[select * from fmember where fd_category_big_name like '%'||#{fd_category_big_name}||'%']]>
+ 
+  </select>
+  
+  <!--게시판  리스트 전체검색 -->
+
+ <select id="selectAllBoards" parameterType="com.saeyan.dto.BoardVO" resultType = "com.saeyan.dto.BoardVO">
+
+ select * from board order by num desc
+ 
+  </select>
+  <!--게시물 뷰 하나검색  -->
+  <select id="selectOneBoardByNum" parameterType="com.saeyan.dto.BoardVO" resultType = "com.saeyan.dto.BoardVO">
+
+select * from board where num = #{num}
+ 
+  </select>
+  
+  <!-- 게시판 작성자별 검색   -->
+  <select id="selectBoardsbyname" parameterType="com.saeyan.dto.BoardVO" resultType = "com.saeyan.dto.BoardVO">
+   select * from board where name = #{name} order by num desc
+</select>
+  <!--게시판 접속회수 +1  -->
+  
+   <update id="updateReadCount" parameterType="com.saeyan.dto.BoardVO"   >
+ update board set readcount = readcount+1 where num=#{num}
+  
+  </update>
+ 
+ <!--게시물 등록  -->
+    <insert id="insertBoard" parameterType="com.saeyan.dto.BoardVO">
+ <!-- 
+  insert into board(num, name, email, pass, title, content) values(board_seq.nextval, #{name}, #{email}, #{pass}, #{title}, #{content});   
+   -->
+  insert into board(num, name, email, pass, title, content ,readcount ,writedate,good,fileName,uploadFilePath) values(board_seq.nextval, #{name}, #{email}, #{pass}, #{title}, #{content},#{readcount},#{writedate},#{good},#{fileName},#{uploadFilePath})
+  </insert> 
+  
+   <!-- 게시판 삭제  -->
+     <delete id="deleteBoard" parameterType="com.saeyan.dto.BoardVO"   >
+ DELETE FROM board WHERE num =#{num}
+
+  </delete>
+  
+  <!-- 게시판 업데이트 -->
+     <update id="updateBoard" parameterType="com.saeyan.dto.BoardVO"   >
+ update board set name=#{name}, email=#{email},pass=#{pass},title=#{title},content=#{content},writedate=#{writedate},fileName=#{fileName},uploadFilePath=#{uploadFilePath} where num=#{num}
+  
+  </update>
+ 
+ <!--리플 검색 -->
+  <select id="selectAllSubBoards" parameterType="com.saeyan.dto.SubBoardVO" resultType = "com.saeyan.dto.SubBoardVO">
+
+select * from subboard where num = #{num}
+ 
+  </select>
+  <!-- 리플 등록 -->
+  
+  <insert id="insertSubBoard" parameterType="com.saeyan.dto.SubBoardVO">
+
+  insert into subboard(num, name, content ,writedate) values(#{num}, #{name}, #{content}, #{writedate})
+ 
+  </insert> 
+  
+  <delete id="deleteSubBoard" parameterType="com.saeyan.dto.SubBoardVO"   >
+ DELETE FROM subboard WHERE name=#{name} and content =#{content}
+  
+  </delete>
+  
+  <!--좋아요 검색  -->
+    <select id="selectgood" parameterType="com.saeyan.dto.SubBoardVO" resultType = "com.saeyan.dto.SubBoardVO">
+
+select * from subboard where num = #{num}
+ 
+  </select>
+  
+  <!--좋아요 업데이트 -->
+ 
+  <update id="updategood" parameterType="int"   >
+ update board set good = good+1 where num=#{num}
+  
+  </update>
+  
+  <!--좋아요 아이디 검색  -->
+ <select id="selectusergood" parameterType="com.saeyan.dto.SubBoardVO" resultType = "int">
+<![CDATA[select num from subgood where username =#{username} and  num = #{num} and rownum<2]]>
+</select>
+  <!-- 좋아요 아이디 등록  -->
+    <insert id="insertsubgood" parameterType="com.saeyan.dto.SubBoardVO">
+
+  insert into subgood(username,num) values(#{username}, #{num})
+ 
+  </insert> 
+  
+  <!--게시판 좋아요순  -->
+  <select id="selectgoodBoardsdesc" parameterType="com.saeyan.dto.BoardVO" resultType = "com.saeyan.dto.BoardVO">
+
+ select * from board order by good desc 
+ 
+  </select>
+  
+</mapper>

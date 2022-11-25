@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 14px;
+	font-family: 맑은 고딕, 나눔고딕, 돋움, sans-serif;
+}
+
+.paginate {
+	text-align: center;
+	font-size: 14px;
+}
+
+.paginate a {
+	border: 1px solid #ccc;
+	color: #000;
+	font-weight: 600;
+	text-decoration: none;
+	padding: 3px 7px;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+
+.paginate a:hover, .paginate a:active {
+	color: #6771ff;
+}
+
+.paginate span {
+	border: 1px solid;
+	color: #cb3536;
+	font-weight: 600;
+	text-decoration: none;
+	padding: 3px 7px;
+	margin-left: 3px;
+	vertical-align: middle;
+}
+
+.paginate :first-child {
+	margin-left: 0;
+}
+
+/* .container {
+	width: 700px;
+	margin: auto;
+} */
+.button1 {
+	margin-left: 1150px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.container {
+	width: 900px;
+	margin: auto;
+}
+#wrap .title h1{
+	color: white;
+}
+#wrap .title {
+	height: 80px;
+	padding-top: 2px;
+}
+#imgs{
+	margin-left: 500px;
+}
