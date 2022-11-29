@@ -2,7 +2,9 @@
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
-<web-app>
+
+<!-- 메이븐은 여기 등록되지 않은 서블릿은 인식이 안됨. 체크  -->
+<web-app>  
   <display-name>Archetype Created Web Application</display-name>
   <servlet>
   	<servlet-name>JoinCon</servlet-name>
