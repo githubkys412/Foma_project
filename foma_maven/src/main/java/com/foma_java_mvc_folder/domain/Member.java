@@ -1,6 +1,6 @@
 package com.foma_java_mvc_folder.domain;
 
-public class Member {
+public class Member { //회원정보 엔티티
 	
 //	private String username ="";
 //	private String userpw= "";

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 import com.foma_java_mvc_folder.domain.Member;
 import com.foma_java_mvc_folder.domain.MemberDAO;
 
-public class LoginCon extends HttpServlet {
+public class LoginCon extends HttpServlet {//로그인 담당 클래스
 	private static final long serialVersionUID = 1L;
 
 	

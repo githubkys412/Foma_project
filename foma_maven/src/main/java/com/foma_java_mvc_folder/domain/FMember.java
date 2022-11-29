@@ -1,6 +1,6 @@
 package com.foma_java_mvc_folder.domain;
 
-public class FMember {
+public class FMember { //음식정보 엔티티
  
 private String fd_code,
 fd_name,

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.foma_java_mvc_folder.domain.FMember;
 import com.foma_java_mvc_folder.domain.FMemberDAO;
 
-public class SelectfdCon2 extends HttpServlet {
+public class SelectfdCon2 extends HttpServlet { //비활성 클래스, 팀원 작성 참고용
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {

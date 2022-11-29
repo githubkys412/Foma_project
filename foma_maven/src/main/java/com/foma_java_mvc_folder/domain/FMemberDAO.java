@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import com.foma_java_mvc_folder.database.SqlSessionManager;
 
-public class FMemberDAO {
+public class FMemberDAO { //음식 검색 dao 클래스, 메서드별로 검색결과 출력
    
    SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
    SqlSession sqlSession = sqlSessionFactory.openSession();

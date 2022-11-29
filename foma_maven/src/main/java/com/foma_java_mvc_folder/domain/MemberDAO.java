@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.foma_java_mvc_folder.database.SqlSessionManager;
 import com.foma_java_mvc_folder.domain.Member;
 
-public class MemberDAO {
+public class MemberDAO { //회원 가입, 수정,탈퇴, 로그인 dao 클래스
 	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	SqlSession sqlSession = sqlSessionFactory.openSession();
 	

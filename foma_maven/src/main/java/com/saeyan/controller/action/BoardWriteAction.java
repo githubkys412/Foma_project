@@ -14,7 +14,7 @@ import java.sql.Timestamp;//날짜
 import java.util.ArrayList;
 import java.util.List;
 
-public class BoardWriteAction implements Action {
+public class BoardWriteAction implements Action { //게시글 글쓰기 클래스
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

@@ -13,7 +13,7 @@ import com.foma_java_mvc_folder.domain.Member;
 import com.foma_java_mvc_folder.domain.MemberDAO;
 
 
-public class JoinCon extends HttpServlet {
+public class JoinCon extends HttpServlet { // 회원가입 클래스
 
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,7 +39,7 @@ public class JoinCon extends HttpServlet {
 					userhbp = "고혈압";
 				}
 		
-		double userbmi= userweight/((userheight/100)*(userheight/100));
+		double userbmi= userweight/((userheight/100)*(userheight/100)); //가입시 자동적으로 계산해서 넣기
 		//지병 9가지 추가: 회원정보 수정에 담아질 것(회원가입x)
 		String userhyperlip = ""; //고지혈증
 		String userobesity = ""; //비만

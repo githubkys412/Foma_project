@@ -60,7 +60,7 @@ public class SubBoardDAO {
 			sqlSession.close();
 		}
 	}
-	public void updategood(int num) {//게시판 좋아요 +1
+	public void updategood(int num) {//게시판 좋아요 +1 업데이트시
 		  SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 		   SqlSession sqlSession = sqlSessionFactory.openSession();
 		   int cnt =0;

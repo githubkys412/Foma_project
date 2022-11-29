@@ -7,13 +7,13 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class SqlSessionManager {
+public class SqlSessionManager { //세션팩토리. db연결 클래스
 	
 	static SqlSessionFactory sqlSessionFactory;
 	   
 	   static  {
 	      try {
-	         String resource = "com/foma_java_mvc_folder/database/mybartis_config.xml";
+	         String resource = "com/foma_java_mvc_folder/database/mybartis_config.xml"; //마이파티스 설정
 	         InputStream inputStream = Resources.getResourceAsStream(resource);
 	         sqlSessionFactory =
 	           new SqlSessionFactoryBuilder().build(inputStream);

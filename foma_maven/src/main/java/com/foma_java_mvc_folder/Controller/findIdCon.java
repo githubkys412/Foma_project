@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.foma_java_mvc_folder.domain.Member;
 import com.foma_java_mvc_folder.domain.MemberDAO;
-public class findIdCon extends HttpServlet {
+public class findIdCon extends HttpServlet { //친구 검색 클래스
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("[findIDCon]");
 

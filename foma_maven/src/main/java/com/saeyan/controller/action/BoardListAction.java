@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.saeyan.dao.BoardDAO;
 import com.saeyan.dto.BoardVO;
 
-public class BoardListAction implements Action{
+public class BoardListAction implements Action{ //게시글 뽑아오는 클래스
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

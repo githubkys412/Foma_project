@@ -14,14 +14,14 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import com.saeyan.dao.BoardDAO;
 import com.saeyan.dto.BoardVO;
 
-public class BoardUpdateFormAction implements Action {
+public class BoardUpdateFormAction implements Action { //게시글 업데이트 클래스
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		
 		 HttpSession session = request.getSession();
-		 List<BoardVO> bd = (List<BoardVO>)session.getAttribute("selectOneBoardByNum");
+		 List<BoardVO> bd = (List<BoardVO>)session.getAttribute("selectOneBoardByNum"); //게시글 하나
 		
 		int num = bd.get(0).getNum();
 		String url = "/board/boardUpdate.jsp";

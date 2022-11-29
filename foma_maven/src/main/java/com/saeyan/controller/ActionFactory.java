@@ -11,7 +11,7 @@ import com.saeyan.controller.action.BoardViewAction;
 import com.saeyan.controller.action.BoardWriteAction;
 import com.saeyan.controller.action.BoardWriteFormAction;
 
-public class ActionFactory {
+public class ActionFactory { // 게시판 초기요청 판단 클래스, 프론트 컨트롤러 기능. 스프링에 어울림. 
 	private static ActionFactory instance = new ActionFactory();
 
 	private ActionFactory() {

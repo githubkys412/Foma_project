@@ -11,7 +11,7 @@ import com.foma_java_mvc_folder.domain.Member;
 import com.foma_java_mvc_folder.domain.MemberDAO;
 
 
-public class DeleteCon extends HttpServlet {
+public class DeleteCon extends HttpServlet { // 멤버 삭제 담당 클래스
 	private static final long serialVersionUID = 1L;
 
 	

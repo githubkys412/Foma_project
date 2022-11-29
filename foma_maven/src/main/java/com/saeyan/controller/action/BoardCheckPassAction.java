@@ -19,9 +19,9 @@ public class BoardCheckPassAction implements Action {
 		String url = null;
 		String num = request.getParameter("num");
 		String pass = request.getParameter("pass");
-		BoardDAO bDao = BoardDAO.getInstance();
+		BoardDAO bDao = BoardDAO.getInstance(); //싱글톤 기반 인스턴스 취득
 		
-		List<BoardVO> bd = bDao.selectOneBoardByNum(num);
+		List<BoardVO> bd = bDao.selectOneBoardByNum(num); //번호로 게시글 하나 뽑아오기
 		
 		HttpSession session = request.getSession();
 		if (bd.get(0).getPass().equals(pass)) { // 성공

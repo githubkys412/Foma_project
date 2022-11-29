@@ -14,7 +14,7 @@ import com.saeyan.dto.GoodVO;
 import com.saeyan.dto.SubBoardVO;
 
 
-public class BoardGoodServlet extends HttpServlet {
+public class BoardGoodServlet extends HttpServlet { //게시판 좋아요 담당 서블릿
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,8 +25,8 @@ public class BoardGoodServlet extends HttpServlet {
 
 		
 		
-		int num = Integer.valueOf(request.getParameter("num"));
-		String username = request.getParameter("username");
+		int num = Integer.valueOf(request.getParameter("num")); //보드넘버
+		String username = request.getParameter("username"); //유저이름
 		System.out.println("좋아요 서블릿 입장"+username+num);
 
 		// 2. 수집된 데이터를 Member 객체에 담기
@@ -34,7 +34,7 @@ public class BoardGoodServlet extends HttpServlet {
 		
 		SubBoardDAO bd = new SubBoardDAO();
 		GoodVO vo = new GoodVO(username, num);
-		int cnt = bd.selectusergood(vo);
+		int cnt = bd.selectusergood(vo); //sql 결과 인트로 반환
 		System.out.println("좋아요 유저 검샘결과 " +cnt );
 		if(cnt==0){
 			bd.insertusergood(vo);

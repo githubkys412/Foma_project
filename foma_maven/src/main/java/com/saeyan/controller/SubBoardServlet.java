@@ -15,7 +15,7 @@ import com.saeyan.dto.SubBoardVO;
 
 import java.sql.Timestamp;//날짜
 
-public class SubBoardServlet extends HttpServlet {
+public class SubBoardServlet extends HttpServlet { //댓글 담당 서블릿, 메서드별로 기능 구분 서브코드 받와와서 판정
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)

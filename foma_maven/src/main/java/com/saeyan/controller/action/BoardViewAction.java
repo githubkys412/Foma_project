@@ -13,7 +13,7 @@ import com.saeyan.dao.BoardDAO;
 import com.saeyan.dao.SubBoardDAO;
 import com.saeyan.dto.BoardVO;
 import com.saeyan.dto.SubBoardVO;
-public class BoardViewAction implements Action {
+public class BoardViewAction implements Action { //게시글 클릭
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
@@ -23,7 +23,7 @@ public class BoardViewAction implements Action {
 		System.out.println("보드 뷰 액션 num 파라미터 값   : "+num);
 		BoardDAO bDao = BoardDAO.getInstance();
 		
-		bDao.updateReadCount(num);
+		bDao.updateReadCount(num); //조회수 증가+1
 	//	BoardVO bVo = bDao.selectOneBoardByNum(num);
 	
 		

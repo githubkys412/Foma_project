@@ -12,7 +12,7 @@ import com.saeyan.controller.action.Action;
  * Servlet implementation class BoardServlet
  */
 
-public class BoardServlet extends HttpServlet {
+public class BoardServlet extends HttpServlet { //싱글톤 기반 서블릿, 교재 참고
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -31,8 +31,8 @@ public class BoardServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String command = request.getParameter("command");
 		System.out.println("BoardServlet에서 요청을 받음을 확인 : " + command);
-		ActionFactory af=ActionFactory.getInstance();
-		Action action=af.getAction(command);
+		ActionFactory af=ActionFactory.getInstance();  //싱글톤 기반 인스턴스 취득
+		Action action=af.getAction(command); 
 		if(action != null){
 		action.execute(request, response);
 		}
@@ -45,7 +45,7 @@ public class BoardServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		doGet(request, response);
+		doGet(request, response); //post요청도 get으로 넘김
 	}
 
 }

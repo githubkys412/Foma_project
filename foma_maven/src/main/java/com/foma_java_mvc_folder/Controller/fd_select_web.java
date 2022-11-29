@@ -93,7 +93,7 @@ public class fd_select_web { // openAPI를 이용한 음식이름 검색 서비�
 			e.printStackTrace();
 		}
 
-		// =---------------소스 추가 ========
+		// =---------------소스 추가 ======== //주소 뽑아내는 파싱 작업
 		String str = "";
 		// JSON parser 만들어 문자열 데이터를 객체화한다.
 		try {

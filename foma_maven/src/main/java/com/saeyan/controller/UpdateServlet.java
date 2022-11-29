@@ -25,7 +25,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
  * Servlet implementation class UploadServlet
  */
 //@WebServlet("/UploadServlet")
-public class UpdateServlet extends HttpServlet {
+public class UpdateServlet extends HttpServlet { //게시판 수정시 업로드 파일 교체 담당, 파일 업로드 서블릿과 기능 같음
 	private static final long serialVersionUID = 1L;
 
 	/**

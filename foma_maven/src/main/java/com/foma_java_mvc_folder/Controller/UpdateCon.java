@@ -15,7 +15,7 @@ import com.foma_java_mvc_folder.domain.MemberDAO;
 
 import oracle.net.ns.SessionAtts;
 
-public class UpdateCon extends HttpServlet {
+public class UpdateCon extends HttpServlet { //회원정보 수정. jsp수정시 가입했던 정보 기존에 드러나게
 	private static final long serialVersionUID = 1L;
 
 	

@@ -13,7 +13,7 @@ import org.apache.catalina.Session;
 import com.saeyan.dao.BoardDAO;
 import com.saeyan.dto.BoardVO;
 
-public class BoardDeleteAction implements Action {
+public class BoardDeleteAction implements Action { //게시글 삭제 서블릿
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
